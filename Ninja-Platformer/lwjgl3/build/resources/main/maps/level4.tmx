@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="60">
+ <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16" tilecount="242" columns="22">
+  <image source="../terrain/Terrain.png" width="352" height="176"/>
+  <tile id="0" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="1" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="2" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="3" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="4" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="5" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="6" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="7" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="8" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="9" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="10" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="11" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="12" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="13" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="14" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="15" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="16" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="17" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="18" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="19" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="20" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="21" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="22" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="23" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="24" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="25" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="26" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="27" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="28" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="29" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="30" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="31" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="32" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="33" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="34" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="35" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="36" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="37" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="38" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="39" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="40" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="41" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="42" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="43" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="44" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="45" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="46" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="47" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="48" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="49" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="50" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="51" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="52" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="53" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="54" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="55" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="56" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="57" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="58" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="59" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="60" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="61" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="62" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="63" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="64" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="65" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="66" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="67" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="68" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="69" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="70" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="71" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="72" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="73" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="74" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="75" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="76" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="77" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="78" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="79" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="80" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="81" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="82" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="83" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="84" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="85" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="86" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="87" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="88" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="89" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="90" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="91" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="92" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="93" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="94" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="95" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="96" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="97" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="98" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="99" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="100" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="101" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="102" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="103" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="104" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="105" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="106" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="107" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="108" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="109" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="110" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="111" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="112" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="113" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="114" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="115" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="116" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="117" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="118" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="119" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="120" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="121" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="122" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="123" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="124" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="125" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="126" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="127" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="128" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="129" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="130" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="131" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="132" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="133" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="134" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="135" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="136" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="137" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="138" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="139" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="140" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="141" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="142" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="143" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="144" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="145" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="146" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="147" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="148" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="149" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="150" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="151" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="152" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="153" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="154" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="155" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="156" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="157" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="158" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="159" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="160" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="161" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="162" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="163" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="164" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="165" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="166" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="167" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="168" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="169" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="170" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="171" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="172" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="173" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="174" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="175" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="176" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="177" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="178" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="179" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="180" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="181" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="182" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="183" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="184" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="185" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="186" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="187" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="188" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="189" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="190" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="191" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="192" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="193" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="194" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="195" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="196" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="197" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="198" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="199" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="200" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="201" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="202" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="203" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="204" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="205" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="206" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="207" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="208" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="209" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="210" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="211" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="212" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="213" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="214" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="215" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="216" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="217" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="218" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="219" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="220" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="221" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="222" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="223" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="224" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="225" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="226" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="227" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="228" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="229" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="230" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="231" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="232" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="233" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="234" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="235" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="236" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="237" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="238" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="239" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="240" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="241" type="Solid">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="243" name="spike" class="Spike" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <properties>
+   <property name="name" value="Spike"/>
+  </properties>
+  <image source="../traps/Spikes/Idle.png" width="16" height="16"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="Spike"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="244" name="boxes" tilewidth="28" tileheight="24" tilecount="1" columns="1">
+  <image source="../boxes/Box1/Idle.png" width="28" height="24"/>
+  <tile id="0" type="Box">
+   <properties>
+    <property name="name" value="Boxes"/>
+   </properties>
+  </tile>
+ </tileset>
+ <imagelayer id="2" name="Camada de Imagens 1" offsetx="0.363636" offsety="0.666667">
+  <image source="../menu/menu.png" width="1024" height="576"/>
+ </imagelayer>
+ <layer id="1" name="Camada de Blocos 1" width="64" height="36">
+  <data encoding="csv">
+30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,
+30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,
+30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,
+10,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,11,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,52,53,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,9,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,7,8,8,8,8,8,8,9,0,0,0,0,7,9,0,0,0,7,8,8,8,8,8,8,9,0,0,0,0,29,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+32,8,8,8,8,8,8,8,8,8,8,8,33,30,30,30,30,30,30,32,8,8,8,8,33,32,8,8,8,33,30,30,30,30,30,30,32,8,8,8,8,33,32,8,8,8,9,0,0,0,0,7,8,8,8,8,8,8,8,8,8,8,8,33,
+29,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,32,8,8,8,8,33,30,30,30,30,30,30,30,30,30,30,30,31,
+29,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,31,
+29,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,31,
+29,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,31,
+29,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,31,
+51,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,53
+</data>
+ </layer>
+ <objectgroup id="3" name="Camada de Objetos 1">
+  <object id="5" name="Solid" type="Solid" x="-0.109636" y="466.008" width="751.447" height="164.606">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="12" name="Start" type="Start" x="41" y="423">
+   <properties>
+    <property name="name" value="Start"/>
+   </properties>
+  </object>
+  <object id="13" name="Solid" type="Solid" x="385.341" y="450.616" width="30.1253" height="28.2167">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="14" name="Solid" type="Solid" x="817.079" y="465" width="207.163" height="141.833">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="15" name="Solid" type="Solid" x="744.94" y="480.841" width="78.234" height="108.727">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="19" gid="243" x="751.625" y="480.875" width="16" height="7.375"/>
+  <object id="23" gid="243" x="591.909" y="464.364" width="16" height="6"/>
+  <object id="26" gid="243" x="607.909" y="464.364" width="16" height="6"/>
+  <object id="27" name="Solid" type="Solid" x="192.527" y="449.674" width="126.234" height="29.5">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="29" name="Solid" type="Solid" x="465.282" y="450.058" width="125.734" height="35.6515">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="31" name="Solid" type="Solid" x="737.014" y="386.282" width="61.431" height="14.4849">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="32" name="Solid" type="Solid" x="817.087" y="353.383" width="45.7643" height="14.5474">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="33" name="Solid" type="Solid" x="881.305" y="322.664" width="46.1556" height="13.7349">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="35" name="Solid" type="Solid" x="658.284" y="434.091" width="27.431" height="41.1516">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="36" name="Block" type="Block" x="736.75" y="400.75" width="62.5" height="14.75">
+   <properties>
+    <property name="name" value="Block"/>
+   </properties>
+  </object>
+  <object id="37" name="Block" type="Block" x="817.375" y="368.125" width="45.25" height="14.75">
+   <properties>
+    <property name="name" value="Block"/>
+   </properties>
+  </object>
+  <object id="38" name="Block" type="Block" x="881.958" y="335.5" width="44.8333" height="14.75">
+   <properties>
+    <property name="name" value="Block"/>
+   </properties>
+  </object>
+  <object id="40" name="Solid" type="Solid" x="1006.68" y="-30.7425" width="29.6393" height="550.485">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="41" name="Solid" type="Solid" x="-15.4257" y="12.303" width="29.6393" height="550.485">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="42" name="Solid" type="Solid" x="0.883" y="-26.75" width="1043.23" height="88.5">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="43" gid="243" x="928.364" y="464.909" width="16" height="6.36364"/>
+  <object id="44" gid="243" x="944.909" y="464.364" width="16" height="5.45455"/>
+  <object id="46" gid="244" x="219.875" y="452" width="28" height="24"/>
+  <object id="47" gid="244" x="335.455" y="468.545" width="28" height="24"/>
+  <object id="48" gid="244" x="476.364" y="453.091" width="28" height="24"/>
+  <object id="49" gid="244" x="684" y="466.063" width="28" height="24"/>
+  <object id="50" gid="244" x="968.5" y="468.063" width="28" height="24"/>
+  <object id="51" gid="244" x="775.563" y="387.875" width="28" height="24"/>
+  <object id="53" name="Fruits" type="Fruits" x="292" y="425">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="54" name="Fruits" type="Fruits" x="564" y="417">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="55" name="Fruits" type="Fruits" x="874.5" y="449.5">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="56" name="Fruits" type="Fruits" x="907.5" y="297">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="57" name="Fruits" type="Fruits" x="833.5" y="324.5">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="58" name="Fruits" type="Fruits" x="787" y="337">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="59" name="Fruits" type="Fruits" x="981" y="400.5">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
