@@ -133,11 +133,15 @@ pinkman/Idle.png
 pinkman/Jump.png
 pinkman/Run.png
 pinkman/WallJump.png
+platforms/brownPlatform.png
+platforms/platePlatform.png
+platforms/yellowPlatform.png
 sound/click.wav
 sound/coin.wav
 sound/highjump.wav
 sound/hit.wav
 sound/jump.wav
+sound/main.wav
 sound/music.mp3
 terrain/SandMudIce.png
 terrain/Terrain.png

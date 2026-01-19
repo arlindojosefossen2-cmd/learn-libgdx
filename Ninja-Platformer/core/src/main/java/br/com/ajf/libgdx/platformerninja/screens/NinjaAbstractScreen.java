@@ -7,9 +7,11 @@ import br.com.ajf.libgdx.platformerninja.efects.PlayerDesappearing;
 import br.com.ajf.libgdx.platformerninja.fruits.CollectedFruits;
 import br.com.ajf.libgdx.platformerninja.fruits.Fruits;
 import br.com.ajf.libgdx.platformerninja.model.*;
+import br.com.ajf.libgdx.platformerninja.objects.SpringBoard;
 import br.com.ajf.libgdx.platformerninja.player.*;
 import br.com.ajf.libgdx.platformerninja.spikes.Spike;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
@@ -54,6 +56,8 @@ public class NinjaAbstractScreen extends BaseScreen
 
     private List<Fruits> fruitsList;
 
+    private boolean gameOver;
+
     public NinjaAbstractScreen(String tileMapName)
     {
         initialize(tileMapName);
@@ -97,11 +101,31 @@ public class NinjaAbstractScreen extends BaseScreen
             );
         }
 
+        for (MapObject obj : mapActor.getTileList("Platform"))
+        {
+            MapProperties props = obj.getProperties();
+            new Platform(
+                (float)  props.get("x"),
+                (float)  props.get("y"),
+                mainStage
+            );
+        }
+
         for (MapObject obj : mapActor.getTileList("Spike"))
         {
             MapProperties props = obj.getProperties();
 
             new Spike(
+                (float) props.get("x"),
+                (float) props.get("y"),
+                mainStage
+            );
+        }
+
+        for (MapObject obj : mapActor.getTileList("Spring"))
+        {
+            MapProperties props = obj.getProperties();
+            new SpringBoard(
                 (float) props.get("x"),
                 (float) props.get("y"),
                 mainStage
@@ -199,11 +223,31 @@ public class NinjaAbstractScreen extends BaseScreen
             );
         }
 
+        for (MapObject obj : mapActor.getTileList("Platform"))
+        {
+            MapProperties props = obj.getProperties();
+            new Platform(
+                (float)  props.get("x"),
+                (float)  props.get("y"),
+                mainStage
+            );
+        }
+
         for (MapObject obj : mapActor.getTileList("Spike"))
         {
             MapProperties props = obj.getProperties();
 
             new Spike(
+                (float) props.get("x"),
+                (float) props.get("y"),
+                mainStage
+            );
+        }
+
+        for (MapObject obj : mapActor.getTileList("Spring"))
+        {
+            MapProperties props = obj.getProperties();
+            new SpringBoard(
                 (float) props.get("x"),
                 (float) props.get("y"),
                 mainStage
@@ -329,7 +373,7 @@ public class NinjaAbstractScreen extends BaseScreen
                     return false;
                 }
 
-                BaseGame.setActiveScreen(new NinjaCreditsScreen("not need and not have a TiledMap"));
+                BaseGame.setActiveScreen(new NinjaCreditsScreen("Credits"));
 
                 return false;
             }
@@ -364,144 +408,224 @@ public class NinjaAbstractScreen extends BaseScreen
     }
 
     @Override
+    public boolean keyDown(int keyCode)
+    {
+        if (gameOver)
+        {
+            return false;
+        }
+
+        if (keyCode == Input.Keys.SPACE)
+        {
+            if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
+            {
+                for (Platform platform : BaseActor.getList(mainStage, Platform.class))
+                {
+                    if (player.belowOverlaps(platform))
+                    {
+                        platform.setEnabled(false);
+                    }
+                }
+            }
+            else
+            {
+                player.jump();
+                player.jumpSound.play(0.5f);
+            }
+        }
+
+        return false;
+    }
+
+    @Override
     protected void update(float dt)
     {
         health.setText("Health X "+player.getHealth());
         fruitsLabel.setText("Fruits X "+player.getFruits());
 
-        if (appearing.isAnimationFinished() && appearing.isVisible())
-        {
-            appearing.setVisible(false);
-            appearing.remove();
-            player.setVisible(true);
-        }
-        else if(!appearing.isAnimationFinished())
-        {
-            appearing.centerAtActor(player);
-        }
-
-        for (Solid solid : BaseActor.getList(mainStage,Solid.class))
-        {
-            if (!(solid instanceof Boxes))
-            {
-                player.preventOverlaps(solid);
-            }
-        }
-
-        for (Block block : BaseActor.getList(mainStage, Block.class))
-        {
-            if (player.overlaps(block))
-            {
-                player.preventOverlaps(block);
-                Vector2 hp = new Vector2(player.getX(),player.getY());
-                Vector2 fp = new Vector2(block.getX(),block.getY());
-                player.setMotionAngle(hp.sub(fp).angleDeg());
-                player.setSpeed(10);
-            }
-        }
-
-
-        for (int i = 0;i < fruitsList.size();i++)
-        {
-            Fruits fruits = fruitsList.get(i);
-
-            if (player.overlaps(fruits))
-            {
-                CollectedFruits collected = new CollectedFruits(0,0,mainStage);
-                collected.centerAtActor(fruits);
-                fruits.remove();
-                fruitsList.remove(fruits);
-                player.setFruits(player.getFruits() + 1);
-            }
-        }
-
-        if (fruitsList.isEmpty())
-        {
-            if (disappearing == null)
-            {
-                disappearing = new PlayerDesappearing(0, 0, mainStage);
-                disappearing.centerAtActor(player);
-                player.setVisible(false);
-            }
-        }
-
-        for (Spike spike : BaseActor.getList(mainStage, Spike.class))
-        {
-            if (player.overlaps(spike))
-            {
-                player.preventOverlaps(spike);
-                Vector2 hp = new Vector2(player.getX(),player.getY());
-                Vector2 fp = new Vector2(spike.getX(),spike.getY());
-                player.setMotionAngle(hp.sub(fp).angleDeg());
-                player.setSpeed(400);
-                player.setHealth(player.getHealth()-0.5f);
-            }
-        }
-
         if (player.getHealth() <= 0)
         {
             if (disappearing == null)
             {
+                gameOver = true;
                 disappearing = new PlayerDesappearing(0, 0, mainStage);
                 disappearing.centerAtActor(player);
-                player.setVisible(false);
+                player.setSpeed(0);
+                player.remove();
             }
         }
 
         if (disappearing != null && disappearing.isAnimationFinished())
         {
             disappearing.setVisible(false);
-            player.remove();
+            player.setVisible(false);
+            player.setBelowSensorVisible(false);
+            player.setSpeed(0);
             disappearing.remove();
 
-            if (player.getHealth() <= 0)
+            if (player.getHealth() <= 0 && gameOver)
             {
-                BaseGame.setActiveScreen(new NinjaMenuScreen(randomLevel()));
+                player.remove();
+                BaseGame.setActiveScreen(new NinjaMenuScreen(MENU));
             }
             else if(fruitsList.isEmpty())
             {
+                player.remove();
                 BaseGame.setActiveScreen(new NinjaLevelScreen(randomLevel(),player));
             }
         }
 
-        for (Boxes box : BaseActor.getList(mainStage, Boxes.class))
+        if (appearing.isAnimationFinished() && appearing.isVisible())
         {
-            if (player.isJumping() || player.isFalling())
+            appearing.setVisible(false);
+            appearing.remove();
+            player.setVisible(true);
+            player.setBelowSensorVisible(true);
+        }
+        else if(!appearing.isAnimationFinished())
+        {
+            appearing.centerAtActor(player);
+        }
+
+        if (player.isVisible())
+        {
+            for (Platform platform : BaseActor.getList(mainStage, Platform.class))
             {
-                if (player.overlaps(box))
+                if (player.isFalling() && !player.overlaps(platform) && !player.belowOverlaps(platform))
                 {
-                    if (!box.solid)
-                    {
-                        player.preventOverlaps(box);
-                        box.setAnimation(box.hit);
-                        Vector2 hp = new Vector2(player.getX(), player.getY());
-                        Vector2 fp = new Vector2(box.getX(), box.getY());
-                        player.setMotionAngle(hp.sub(fp).angleDeg());
-                        player.setSpeed(200);
-                        box.health--;
-                    }
-                    else
-                    {
-                        player.preventOverlaps(box);
-                    }
+                    platform.setEnabled(true);
                 }
-                else
+
+                if (player.isJumping() && player.overlaps(platform))
                 {
-                    box.setAnimation(box.idle);
+                    platform.setEnabled(false);
+                }
+                if (player.isJumping() && !player.overlaps(platform))
+                {
+                    platform.setEnabled(true);
                 }
             }
 
-            if (box.health <= 0)
+            for (Block block : BaseActor.getList(mainStage, Block.class))
             {
-                box.setAnimation(box.destructible);
-
-                if (box.isAnimationFinished())
+                if (player.overlaps(block))
                 {
-                    Fruits f = new Fruits(0,0,mainStage);
-                    fruitsList.add(f);
-                    f.centerAtActor(box);
-                    box.setVisible(false);
-                    box.remove();
+                    player.preventOverlaps(block);
+                    Vector2 hp = new Vector2(player.getX(), player.getY());
+                    Vector2 fp = new Vector2(block.getX(), block.getY());
+                    player.setMotionAngle(hp.sub(fp).angleDeg());
+                    player.setSpeed(10);
+                }
+            }
+
+            for (SpringBoard spring : BaseActor.getList(mainStage, SpringBoard.class))
+            {
+                if (player.overlaps(spring))
+                {
+                    player.spring();
+                    spring.setAnimation(spring.jump);
+                } else
+                {
+                    spring.setAnimation(spring.idle);
+                }
+            }
+
+            for (int i = 0; i < fruitsList.size(); i++)
+            {
+                Fruits fruits = fruitsList.get(i);
+
+                if (player.overlaps(fruits))
+                {
+                    CollectedFruits collected = new CollectedFruits(0, 0, mainStage);
+                    collected.centerAtActor(fruits);
+                    fruits.remove();
+                    fruitsList.remove(fruits);
+                    player.setFruits(player.getFruits() + 1);
+                }
+            }
+
+            if (fruitsList.isEmpty())
+            {
+                if (disappearing == null)
+                {
+                    disappearing = new PlayerDesappearing(0, 0, mainStage);
+                    disappearing.centerAtActor(player);
+                    player.setVisible(false);
+                    player.setBelowSensorVisible(false);
+                    player.setSpeed(0);
+                }
+            }
+
+            for (Spike spike : BaseActor.getList(mainStage, Spike.class))
+            {
+                if (player.overlaps(spike))
+                {
+                    player.preventOverlaps(spike);
+                    player.setHit(true);
+                    Vector2 hp = new Vector2(player.getX(), player.getY());
+                    Vector2 fp = new Vector2(spike.getX(), spike.getY());
+                    player.setMotionAngle(hp.sub(fp).angleDeg());
+                    player.setSpeed(400);
+                    player.setHealth(player.getHealth() - 0.5f);
+                }
+            }
+
+            for (Boxes box : BaseActor.getList(mainStage, Boxes.class))
+            {
+                if (player.isJumping() || player.isFalling())
+                {
+                    if (player.overlaps(box))
+                    {
+                        if (!box.solid)
+                        {
+                            player.preventOverlaps(box);
+                            box.setAnimation(box.hit);
+                            Vector2 hp = new Vector2(player.getX(), player.getY());
+                            Vector2 fp = new Vector2(box.getX(), box.getY());
+                            player.setMotionAngle(hp.sub(fp).angleDeg());
+                            player.setSpeed(200);
+                            box.health--;
+                        } else
+                        {
+                            player.preventOverlaps(box);
+                        }
+                    } else
+                    {
+                        box.setAnimation(box.idle);
+                    }
+                }
+
+                if (box.health <= 0)
+                {
+                    box.setAnimation(box.destructible);
+
+                    if (box.isAnimationFinished())
+                    {
+                        Fruits f = new Fruits(0, 0, mainStage);
+                        fruitsList.add(f);
+                        f.centerAtActor(box);
+                        box.setVisible(false);
+                        box.remove();
+                    }
+                }
+            }
+
+            for (Solid solid : BaseActor.getList(mainStage, Solid.class))
+            {
+                if (player.overlaps(solid) && solid.isEnabled() && !(solid instanceof Boxes))
+                {
+                    Vector2 offset = player.preventOverlaps(solid);
+
+                    if (offset != null)
+                    {
+                        if (Math.abs(offset.x) > Math.abs(offset.y))
+                        {
+                            player.velocityVec.x = 0;
+                        } else
+                        {
+                            player.velocityVec.y = 0;
+                        }
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@ package br.com.ajf.libgdx.platformerninja.screens;
 import br.com.ajf.libgdx.platformerninja.model.BaseActor;
 import br.com.ajf.libgdx.platformerninja.model.BaseGame;
 import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class NinjaCreditsScreen extends NinjaAbstractScreen
@@ -15,6 +16,8 @@ public class NinjaCreditsScreen extends NinjaAbstractScreen
     @Override
     protected void initialize(String tileMapName)
     {
+        mainStage = new Stage();
+        uiStage = new Stage();
         BaseActor hello = new BaseActor(0,0,mainStage);
         hello.loadTexture("assets/hello/Hello.png");
         hello.setSize(1024,576);

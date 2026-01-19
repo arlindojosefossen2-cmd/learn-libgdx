@@ -4,6 +4,7 @@ import br.com.ajf.libgdx.platformerninja.model.BaseActor;
 import br.com.ajf.libgdx.platformerninja.model.Solid;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -14,15 +15,19 @@ public abstract class Player extends BaseActor
 {
     public static final int MAX_HEALTH = 6;
 
-    private static final int NINJA_FROG = 0;
-    private static final int NINJA_PINK_MAN = 1;
-    private static final int NINJA_MASKED = 2;
-    private static final int NINJA_VIRTUAL_GUY = 3;
+    public static final int NINJA_FROG = 0;
+    public static final int NINJA_PINK_MAN = 1;
+    public static final int NINJA_MASKED = 2;
+    public static final int NINJA_VIRTUAL_GUY = 3;
 
     protected Animation<TextureRegion> idle;
     protected Animation<TextureRegion> walk;
     protected Animation<TextureRegion> jump;
     protected Animation<TextureRegion> fall;
+    protected Animation<TextureRegion> hitAnim;
+
+    public final Sound jumpSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/jump.wav"));
+    public final Sound  hitSound = Gdx.audio.newSound(Gdx.files.internal("assets/sound/hit.wav"));
 
     protected float jumpSpeed;
     protected BaseActor belowSensor;
@@ -34,15 +39,41 @@ public abstract class Player extends BaseActor
     protected float maxVerticalSpeed;
     protected float health = MAX_HEALTH;
     private int fruits;
+    private boolean hit;
+    private int walkDirection;
+    private float decelerationDelta;
+    private float walkSpeed;
 
     public Player(float x, float y)
     {
         super(x, y);
+
+        gravity = 700;
+        jumpSpeed = 400;
+        walkAcceleration = 200;
+        walkDeceleration = 200;
+        maxVerticalSpeed = 1000;
+        maxHorizontalSpeed = 100;
+    }
+
+    public boolean isHit()
+    {
+        return hit;
+    }
+
+    public void setHit(boolean hit)
+    {
+        this.hit = hit;
     }
 
     public int getFruits()
     {
         return fruits;
+    }
+
+    public void setBelowSensorVisible(boolean visible)
+    {
+        belowSensor.setVisible(visible);
     }
 
     public void randomPlayerImg()
@@ -54,6 +85,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/ninja/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/ninja/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/ninja/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,0.1f,false);
 
                 setAnimation(idle);
                 break;
@@ -62,6 +94,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/pinkman/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/pinkman/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/pinkman/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,0.1f,false);
 
                 setAnimation(idle);
                 break;
@@ -70,6 +103,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/masked/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/masked/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/masked/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,0.1f,false);
 
                 setAnimation(idle);
                 break;
@@ -78,10 +112,52 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/virtualguy/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/virtualguy/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/virtualguy/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,0.1f,false);
 
                 setAnimation(idle);
                 break;
+        }
+    }
+    public void getPlayerImgById(int playerNameId)
+    {
+        switch (playerNameId)
+        {
+            case NINJA_FROG:
+                idle = loadAnimationFromSheet("assets/ninja/Idle.png",1,11,0.2f,true);
+                walk = loadAnimationFromSheet("assets/ninja/Run.png",1,12,0.05f,true);
+                jump = loadAnimationFromSheet("assets/ninja/Jump.png",1,1,0.1f,false);
+                fall = loadTexture("assets/ninja/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,0.1f,false);
 
+                setAnimation(idle);
+                break;
+            case NINJA_PINK_MAN:
+                idle = loadAnimationFromSheet("assets/pinkman/Idle.png",1,11,0.2f,true);
+                walk = loadAnimationFromSheet("assets/pinkman/Run.png",1,12,0.05f,true);
+                jump = loadAnimationFromSheet("assets/pinkman/Jump.png",1,1,0.1f,false);
+                fall = loadTexture("assets/pinkman/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,0.1f,false);
+
+                setAnimation(idle);
+                break;
+            case NINJA_MASKED:
+                idle = loadAnimationFromSheet("assets/masked/Idle.png",1,11,0.2f,true);
+                walk = loadAnimationFromSheet("assets/masked/Run.png",1,12,0.05f,true);
+                jump = loadAnimationFromSheet("assets/masked/Jump.png",1,1,0.1f,false);
+                fall = loadTexture("assets/masked/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,0.1f,false);
+
+                setAnimation(idle);
+                break;
+            case NINJA_VIRTUAL_GUY:
+                idle = loadAnimationFromSheet("assets/virtualguy/Idle.png",1,11,0.2f,true);
+                walk = loadAnimationFromSheet("assets/virtualguy/Run.png",1,12,0.05f,true);
+                jump = loadAnimationFromSheet("assets/virtualguy/Jump.png",1,1,0.1f,false);
+                fall = loadTexture("assets/virtualguy/Fall.png");
+                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,0.1f,false);
+
+                setAnimation(idle);
+                break;
         }
     }
 
@@ -105,7 +181,7 @@ public abstract class Player extends BaseActor
     {
         for (Solid solid : BaseActor.getList(getStage(),Solid.class))
         {
-            if (belowOverlaps(solid) && solid.isEnabled() || overlaps(solid))
+            if (belowOverlaps(solid) && solid.isEnabled())
             {
                 return true;
             }
@@ -138,6 +214,11 @@ public abstract class Player extends BaseActor
         velocityVec.y = jumpSpeed;
     }
 
+    public void spring()
+    {
+        velocityVec.y = 1.5f*jumpSpeed;
+    }
+
     @Override
     public void act(float delta)
     {
@@ -165,8 +246,7 @@ public abstract class Player extends BaseActor
         if (!Gdx.input.isKeyPressed(Input.Keys.LEFT)
             && !Gdx.input.isKeyPressed(Input.Keys.RIGHT))
         {
-            float da = walkDeceleration*delta;
-            float walkDirection;
+            decelerationDelta = walkDeceleration*delta;
 
             if (velocityVec.x > 0)
             {
@@ -177,8 +257,8 @@ public abstract class Player extends BaseActor
                 walkDirection = -1;
             }
 
-            float walkSpeed = Math.abs(velocityVec.x);
-            walkSpeed -= da;
+            walkSpeed = Math.abs(velocityVec.x);
+            walkSpeed -= decelerationDelta;
 
             if (walkSpeed < 0)
             {
@@ -195,7 +275,7 @@ public abstract class Player extends BaseActor
 
         moveBy(velocityVec.x*delta,velocityVec.y*delta);
         accelerationVec.set(0,0);
-        belowSensor.setPosition(getX()+4,getY()-4);
+        belowSensor.setPosition(getX()+4,getY()-8);
         alignCamera(false);
         boundToWorld();
 
@@ -210,11 +290,6 @@ public abstract class Player extends BaseActor
             else
             {
                 setAnimation(walk);
-            }
-
-            if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
-            {
-                jump();
             }
         }
         else
@@ -232,6 +307,13 @@ public abstract class Player extends BaseActor
             }
         }
 
+        if (isHit())
+        {
+            setAnimation(hitAnim);
+            hitSound.play(0.5f);
+            hit = false;
+        }
+
         if (velocityVec.x > 0)
         {
             setScaleX(1);
@@ -244,6 +326,9 @@ public abstract class Player extends BaseActor
 
     public void dispose()
     {
-
+        jumpSound.stop();
+        jumpSound.dispose();
+        hitSound.stop();
+        hitSound.dispose();
     }
 }
