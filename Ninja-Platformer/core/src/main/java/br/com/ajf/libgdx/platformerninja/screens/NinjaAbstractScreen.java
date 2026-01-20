@@ -1,13 +1,11 @@
 package br.com.ajf.libgdx.platformerninja.screens;
 
-import br.com.ajf.libgdx.platformerninja.objects.Block;
-import br.com.ajf.libgdx.platformerninja.objects.Boxes;
+import br.com.ajf.libgdx.platformerninja.objects.*;
 import br.com.ajf.libgdx.platformerninja.efects.PlayerAppearing;
 import br.com.ajf.libgdx.platformerninja.efects.PlayerDesappearing;
 import br.com.ajf.libgdx.platformerninja.fruits.CollectedFruits;
 import br.com.ajf.libgdx.platformerninja.fruits.Fruits;
 import br.com.ajf.libgdx.platformerninja.model.*;
-import br.com.ajf.libgdx.platformerninja.objects.SpringBoard;
 import br.com.ajf.libgdx.platformerninja.player.*;
 import br.com.ajf.libgdx.platformerninja.spikes.Spike;
 import com.badlogic.gdx.Gdx;
@@ -57,6 +55,7 @@ public class NinjaAbstractScreen extends BaseScreen
     private List<Fruits> fruitsList;
 
     private boolean gameOver;
+    private EndPoint endPoint;
 
     public NinjaAbstractScreen(String tileMapName)
     {
@@ -173,13 +172,13 @@ public class NinjaAbstractScreen extends BaseScreen
 
         health = new Label("Health X "+player.getHealth(),BaseGame.masterTagFont);
         health.setPosition(96,548,Align.center);
-        health.setColor(Color.BLACK);
+        health.setColor(Color.WHITE);
         health.setFontScale(1.1f);
         health.setVisible(true);
 
         fruitsLabel = new Label("Fruits X "+player.getFruits(),BaseGame.masterTagFont);
         fruitsLabel.setPosition(1024/2f,548,Align.center);
-        fruitsLabel.setColor(Color.BLACK);
+        fruitsLabel.setColor(Color.WHITE);
         fruitsLabel.setFontScale(1.1f);
         fruitsLabel.setVisible(true);
 
@@ -187,6 +186,17 @@ public class NinjaAbstractScreen extends BaseScreen
         uiStage.addActor(fruitsLabel);
         appearing = new PlayerAppearing(0,0,mainStage);
         appearing.centerAtActor(player);
+
+        obj = mapActor.getTileList("StartPoint").get(0);
+        props = obj.getProperties();
+
+        new StartPoint((float) props.get("x"), (float) props.get("y"),mainStage);
+
+        obj = mapActor.getTileList("EndPoint").get(0);
+        props = obj.getProperties();
+
+       endPoint = new EndPoint((float) props.get("x"), (float) props.get("y"),mainStage);
+       endPoint.setVisible(false);
     }
 
     @Override
@@ -288,11 +298,6 @@ public class NinjaAbstractScreen extends BaseScreen
         this.player.randomPlayerImg();
         this.player.addActorToStage(mainStage);
 
-        if (this.player.isMoving())
-        {
-            this.player.setSpeed(0);
-        }
-
         this.player.setPosition(
             (float) props.get("x"),
             (float) props.get("y"));
@@ -301,14 +306,14 @@ public class NinjaAbstractScreen extends BaseScreen
 
         health = new Label("Health X "+player.getHealth(),BaseGame.masterTagFont);
         health.setPosition(96,548,Align.center);
-        health.setColor(Color.BLACK);
-        health.setFontScale(1.1f);
+        health.setColor(Color.WHITE);
+        health.setFontScale(1.3f);
         health.setVisible(true);
 
         fruitsLabel = new Label("Fruits X "+player.getFruits(),BaseGame.masterTagFont);
         fruitsLabel.setPosition(1024/2f,548,Align.center);
-        fruitsLabel.setColor(Color.BLACK);
-        fruitsLabel.setFontScale(1.1f);
+        fruitsLabel.setColor(Color.WHITE);
+        fruitsLabel.setFontScale(1.3f);
         fruitsLabel.setVisible(true);
 
         uiStage.addActor(health);
@@ -316,6 +321,16 @@ public class NinjaAbstractScreen extends BaseScreen
         appearing = new PlayerAppearing(0,0,mainStage);
         appearing.centerAtActor(this.player);
 
+        obj = mapActor.getTileList("StartPoint").get(0);
+        props = obj.getProperties();
+
+        new StartPoint((float) props.get("x"), (float) props.get("y"),mainStage);
+
+        obj = mapActor.getTileList("EndPoint").get(0);
+        props = obj.getProperties();
+
+        endPoint = new EndPoint((float) props.get("x"), (float) props.get("y"),mainStage);
+        endPoint.setVisible(false);
     }
 
     private void menuSettings()
@@ -429,8 +444,11 @@ public class NinjaAbstractScreen extends BaseScreen
             }
             else
             {
-                player.jump();
-                player.jumpSound.play(0.5f);
+                if (player.isOnSolid())
+                {
+                    player.jump();
+                    player.jumpSound.play(0.5f);
+                }
             }
         }
 
@@ -455,24 +473,36 @@ public class NinjaAbstractScreen extends BaseScreen
             }
         }
 
+        if (endPoint.isVisible() && player.overlaps(endPoint) && player.isVisible())
+        {
+            player.setVisible(false);
+            player.setBelowSensorVisible(false);
+            disappearing = new PlayerDesappearing(0,0,mainStage);
+            disappearing.centerAtActor(player);
+        }
+
         if (disappearing != null && disappearing.isAnimationFinished())
         {
             disappearing.setVisible(false);
-            player.setVisible(false);
-            player.setBelowSensorVisible(false);
             player.setSpeed(0);
             disappearing.remove();
+            endPoint.remove();
 
             if (player.getHealth() <= 0 && gameOver)
             {
                 player.remove();
                 BaseGame.setActiveScreen(new NinjaMenuScreen(MENU));
             }
-            else if(fruitsList.isEmpty())
+            if (fruitsList.isEmpty())
             {
                 player.remove();
-                BaseGame.setActiveScreen(new NinjaLevelScreen(randomLevel(),player));
+                BaseGame.setActiveScreen(new NinjaLevelScreen(randomLevel(),randomPlayer()));
             }
+        }
+
+        if (fruitsList.isEmpty())
+        {
+            endPoint.setVisible(true);
         }
 
         if (appearing.isAnimationFinished() && appearing.isVisible())
@@ -544,29 +574,17 @@ public class NinjaAbstractScreen extends BaseScreen
                 }
             }
 
-            if (fruitsList.isEmpty())
-            {
-                if (disappearing == null)
-                {
-                    disappearing = new PlayerDesappearing(0, 0, mainStage);
-                    disappearing.centerAtActor(player);
-                    player.setVisible(false);
-                    player.setBelowSensorVisible(false);
-                    player.setSpeed(0);
-                }
-            }
-
             for (Spike spike : BaseActor.getList(mainStage, Spike.class))
             {
                 if (player.overlaps(spike))
                 {
                     player.preventOverlaps(spike);
-                    player.setHit(true);
                     Vector2 hp = new Vector2(player.getX(), player.getY());
                     Vector2 fp = new Vector2(spike.getX(), spike.getY());
                     player.setMotionAngle(hp.sub(fp).angleDeg());
                     player.setSpeed(400);
-                    player.setHealth(player.getHealth() - 0.5f);
+                    player.setHit(true);
+                    player.damagePlayer();
                 }
             }
 

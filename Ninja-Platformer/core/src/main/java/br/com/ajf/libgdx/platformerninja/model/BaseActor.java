@@ -68,6 +68,11 @@ public class BaseActor extends Group
         stage.addActor(this);
 	}
 
+    public Animation<TextureRegion> getAnimation()
+    {
+        return animation;
+    }
+
     public boolean isWithinDistance(float distance, BaseActor other)
 	{
 		Polygon polygon1 = this.getBoundaryPolygon();

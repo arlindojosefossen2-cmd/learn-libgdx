@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="64">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="74">
  <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16" tilecount="242" columns="22">
   <image source="../terrain/Terrain.png" width="352" height="176"/>
   <tile id="0">
@@ -1248,6 +1248,22 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="247" name="checkpointstart" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../checkpoints/Start/StartIdle.png" width="64" height="64"/>
+  <tile id="0" type="StartPoint">
+   <properties>
+    <property name="name" value="StartPoint"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="248" name="EndPoint" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../checkpoints/End/EndIdle.png" width="64" height="64"/>
+  <tile id="0" type="EndPoint">
+   <properties>
+    <property name="name" value="EndPoint"/>
+   </properties>
+  </tile>
+ </tileset>
  <imagelayer id="2" name="Camada de Imagens 1" offsetx="0.363636" offsety="0.666667">
   <image source="../menu/menu.png" width="1024" height="576"/>
  </imagelayer>
@@ -1270,15 +1286,15 @@
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,9,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,0,0,7,9,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,53,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
-31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,51,52,53,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
+31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
 31,0,0,0,0,0,0,0,0,0,0,0,7,8,8,8,8,8,8,9,0,0,0,0,7,9,0,0,0,7,8,8,8,8,8,8,9,0,0,0,0,0,7,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,
@@ -1292,27 +1308,27 @@
 </data>
  </layer>
  <objectgroup id="3" name="Camada de Objetos 1">
-  <object id="5" name="Solid" type="Solid" x="581.89" y="466.23" width="169.447" height="71.9261">
+  <object id="5" name="Solid" type="Solid" x="581.89" y="466.23" width="169.447" height="108.926">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="12" name="Start" type="Start" x="57.1667" y="408.333">
+  <object id="12" name="Start" type="Start" x="46.4167" y="412.75">
    <properties>
     <property name="name" value="Start"/>
    </properties>
   </object>
-  <object id="13" name="Solid" type="Solid" x="385.091" y="450.124" width="30.1253" height="102.247">
+  <object id="13" name="Solid" type="Solid" x="385.091" y="450.124" width="30.1253" height="124.247">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="14" name="Solid" type="Solid" x="817.079" y="466.364" width="207.163" height="90.5">
+  <object id="14" name="Solid" type="Solid" x="817.079" y="466.364" width="207.163" height="106.5">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="15" name="Solid" type="Solid" x="744.94" y="482.154" width="78.234" height="88.2481">
+  <object id="15" name="Solid" type="Solid" x="744.94" y="482.154" width="78.234" height="92.2481">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
@@ -1345,22 +1361,17 @@
     <property name="name" value="Title"/>
    </properties>
   </object>
-  <object id="29" name="Solid" type="Solid" x="465.282" y="450.331" width="125.734" height="81.0455">
+  <object id="29" name="Solid" type="Solid" x="465.282" y="450.331" width="125.734" height="123.046">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="30" name="Solid" type="Solid" x="673.164" y="450.704" width="45.7643" height="61.4469">
+  <object id="30" name="Solid" type="Solid" x="673.164" y="450.704" width="45.7643" height="122.947">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="31" name="Solid" type="Solid" x="753.586" y="386.309" width="45.7643" height="15.7122">
-   <properties>
-    <property name="name" value="Solid"/>
-   </properties>
-  </object>
-  <object id="32" name="Solid" type="Solid" x="817.087" y="354.042" width="45.7643" height="14.8542">
+  <object id="32" name="Solid" type="Solid" x="785.087" y="274.042" width="45.7643" height="16.1042">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
@@ -1375,7 +1386,7 @@
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="35" name="Solid" type="Solid" x="1.2765" y="465.652" width="202.614" height="100.364">
+  <object id="35" name="Solid" type="Solid" x="1.2765" y="465.652" width="202.614" height="111.697">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
@@ -1385,22 +1396,22 @@
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="37" name="Solid" type="Solid" x="404.652" y="465.818" width="70.447" height="101.739">
+  <object id="37" name="Solid" type="Solid" x="404.652" y="465.818" width="70.447" height="107.739">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="38" name="Solid" type="Solid" x="-37.307" y="47.4849" width="51.864" height="436.03">
+  <object id="38" name="Solid" type="Solid" x="-2.307" y="47.4849" width="16.864" height="436.03">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="39" name="Solid" type="Solid" x="1009.51" y="53.8182" width="47.7958" height="430.697">
+  <object id="39" name="Solid" type="Solid" x="1009.51" y="53.8182" width="17.7958" height="430.697">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
   </object>
-  <object id="40" name="Solid" type="Solid" x="-9.97367" y="-4.6818" width="1064.61" height="65.1969">
+  <object id="40" name="Solid" type="Solid" x="2.02633" y="-4.6818" width="1024.61" height="65.1969">
    <properties>
     <property name="name" value="Solid"/>
    </properties>
@@ -1435,12 +1446,7 @@
     <property name="name" value="Fruits"/>
    </properties>
   </object>
-  <object id="50" name="Block" type="Block" x="753.446" y="402.151" width="45.6364" height="13.1087">
-   <properties>
-    <property name="name" value="Block"/>
-   </properties>
-  </object>
-  <object id="51" name="Block" type="Block" x="817" y="369.693" width="45.6364" height="12.0795">
+  <object id="51" name="Block" type="Block" x="785" y="290.693" width="45.6364" height="12.0795">
    <properties>
     <property name="name" value="Block"/>
    </properties>
@@ -1457,11 +1463,39 @@
   </object>
   <object id="54" gid="244" x="510.602" y="452" width="28" height="24"/>
   <object id="55" gid="244" x="619.75" y="468" width="28" height="24"/>
-  <object id="56" gid="244" x="775.06" y="388.636" width="28" height="24"/>
   <object id="57" gid="244" x="849.727" y="468.364" width="28" height="24"/>
   <object id="58" gid="244" x="975.75" y="414.25" width="28" height="24"/>
   <object id="60" gid="243" x="657.545" y="464.818" width="16" height="16"/>
   <object id="61" gid="245" x="672.333" y="355" width="48" height="7"/>
   <object id="63" gid="246" x="682" y="450.364" width="28" height="28"/>
+  <object id="64" x="694" y="309.333">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="65" x="900" y="258">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="66" x="799.833" y="201.5">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="67" x="961" y="219.5">
+   <properties>
+    <property name="name" value="Fruits"/>
+   </properties>
+  </object>
+  <object id="68" gid="243" x="934.386" y="465.75" width="16" height="7.09091"/>
+  <object id="69" gid="243" x="917.636" y="465.818" width="16" height="6.72727"/>
+  <object id="71" gid="247" x="18" y="465.667" width="64" height="64"/>
+  <object id="72" name="Solid" type="Solid" x="44.4285" y="459.545" width="33.234" height="8.77318">
+   <properties>
+    <property name="name" value="Solid"/>
+   </properties>
+  </object>
+  <object id="73" gid="248" x="664.5" y="347.75" width="64" height="64"/>
  </objectgroup>
 </map>

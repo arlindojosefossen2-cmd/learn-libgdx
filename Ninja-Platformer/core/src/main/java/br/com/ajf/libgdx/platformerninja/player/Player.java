@@ -40,6 +40,7 @@ public abstract class Player extends BaseActor
     protected float health = MAX_HEALTH;
     private int fruits;
     private boolean hit;
+
     private int walkDirection;
     private float decelerationDelta;
     private float walkSpeed;
@@ -85,7 +86,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/ninja/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/ninja/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/ninja/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -94,7 +95,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/pinkman/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/pinkman/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/pinkman/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -103,7 +104,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/masked/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/masked/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/masked/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -112,7 +113,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/virtualguy/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/virtualguy/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/virtualguy/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -127,7 +128,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/ninja/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/ninja/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/ninja/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/ninja/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -136,7 +137,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/pinkman/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/pinkman/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/pinkman/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/pinkman/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -145,7 +146,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/masked/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/masked/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/masked/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/masked/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -154,7 +155,7 @@ public abstract class Player extends BaseActor
                 walk = loadAnimationFromSheet("assets/virtualguy/Run.png",1,12,0.05f,true);
                 jump = loadAnimationFromSheet("assets/virtualguy/Jump.png",1,1,0.1f,false);
                 fall = loadTexture("assets/virtualguy/Fall.png");
-                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,0.1f,false);
+                hitAnim = loadAnimationFromSheet("assets/virtualguy/Hit.png",1,7,30f,false);
 
                 setAnimation(idle);
                 break;
@@ -222,106 +223,109 @@ public abstract class Player extends BaseActor
     @Override
     public void act(float delta)
     {
-        if (!isVisible())
-        {
-            return;
-        }
+            if (!isVisible())
+            {
+                return;
+            }
 
-        super.act(delta);
+            super.act(delta);
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-        {
-            accelerationVec.add(-walkAcceleration,0);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-        {
-            accelerationVec.add(walkAcceleration,0);
-        }
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+            {
+                accelerationVec.add(-walkAcceleration, 0);
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            {
+                accelerationVec.add(walkAcceleration, 0);
+            }
 
-        accelerationVec.add(0,-gravity);
+            accelerationVec.add(0, -gravity);
 
-        velocityVec.add(accelerationVec.x*delta,
-            accelerationVec.y*delta);
+            velocityVec.add(accelerationVec.x * delta,
+                accelerationVec.y * delta);
 
-        if (!Gdx.input.isKeyPressed(Input.Keys.LEFT)
-            && !Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-        {
-            decelerationDelta = walkDeceleration*delta;
+            if (!Gdx.input.isKeyPressed(Input.Keys.LEFT)
+                && !Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            {
+                decelerationDelta = walkDeceleration * delta;
+
+                if (velocityVec.x > 0)
+                {
+                    walkDirection = 1;
+                } else
+                {
+                    walkDirection = -1;
+                }
+
+                walkSpeed = Math.abs(velocityVec.x);
+                walkSpeed -= decelerationDelta;
+
+                if (walkSpeed < 0)
+                {
+                    walkSpeed = 0;
+                }
+
+                velocityVec.x = walkSpeed * walkDirection;
+            }
+
+            velocityVec.x = MathUtils.clamp(velocityVec.x,
+                -maxHorizontalSpeed, maxHorizontalSpeed);
+            velocityVec.y = MathUtils.clamp(velocityVec.y,
+                -maxVerticalSpeed, maxVerticalSpeed);
+
+            moveBy(velocityVec.x * delta, velocityVec.y * delta);
+            accelerationVec.set(0, 0);
+            belowSensor.setPosition(getX() + 4, getY() - 8);
+            alignCamera(false);
+            boundToWorld();
+
+            if (isOnSolid())
+            {
+                belowSensor.setColor(Color.GREEN);
+
+                if (velocityVec.x == 0)
+                {
+                    setAnimation(idle);
+                } else
+                {
+                    setAnimation(walk);
+                }
+            } else
+            {
+                belowSensor.setColor(Color.RED);
+                if (isJumping())
+                {
+                    setAnimation(jump);
+                }
+                else if (isFalling())
+                {
+                    setAnimation(fall);
+                }
+            }
+
+            if (isHit())
+            {
+                if (isAnimationFinished())
+                {
+                    hit = false;
+                    setHealth(getHealth() - 1);
+                }
+            }
 
             if (velocityVec.x > 0)
             {
-                walkDirection = 1;
+                setScaleX(1);
             }
-            else
+            if(velocityVec.x < 0)
             {
-                walkDirection = -1;
+                setScaleX(-1);
             }
+    }
 
-            walkSpeed = Math.abs(velocityVec.x);
-            walkSpeed -= decelerationDelta;
-
-            if (walkSpeed < 0)
-            {
-                walkSpeed = 0;
-            }
-
-            velocityVec.x = walkSpeed*walkDirection;
-        }
-
-        velocityVec.x = MathUtils.clamp(velocityVec.x,
-            -maxHorizontalSpeed,maxHorizontalSpeed);
-        velocityVec.y = MathUtils.clamp(velocityVec.y,
-            -maxVerticalSpeed,maxVerticalSpeed);
-
-        moveBy(velocityVec.x*delta,velocityVec.y*delta);
-        accelerationVec.set(0,0);
-        belowSensor.setPosition(getX()+4,getY()-8);
-        alignCamera(false);
-        boundToWorld();
-
-        if (isOnSolid())
-        {
-            belowSensor.setColor(Color.GREEN);
-
-            if (velocityVec.x == 0)
-            {
-                setAnimation(idle);
-            }
-            else
-            {
-                setAnimation(walk);
-            }
-        }
-        else
-        {
-            belowSensor.setColor(Color.RED);
-
-            if (isJumping())
-            {
-                setAnimation(jump);
-            }
-
-            if(isFalling())
-            {
-                setAnimation(fall);
-            }
-        }
-
-        if (isHit())
-        {
-            setAnimation(hitAnim);
-            hitSound.play(0.5f);
-            hit = false;
-        }
-
-        if (velocityVec.x > 0)
-        {
-            setScaleX(1);
-        }
-        if(velocityVec.x < 0)
-        {
-            setScaleX(-1);
-        }
+    public void damagePlayer()
+    {
+        setAnimation(hitAnim);
+        hitSound.play(0.5f);
     }
 
     public void dispose()

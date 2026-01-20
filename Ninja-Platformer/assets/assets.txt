@@ -45,7 +45,6 @@ maps/level2.tmx
 maps/level3.tmx
 maps/level4.tmx
 maps/menu.tmx
-masked/DoubleJump.png
 masked/Fall.png
 masked/Hit.png
 masked/Idle.png
@@ -53,6 +52,9 @@ masked/Jump.png
 masked/Run.png
 masked/WallJump.png
 menu/backgroundLevel1.png
+menu/backgroundlevel2.png
+menu/backgroundlevel3.png
+menu/backgroundlevel4.png
 menu/buttons/Achievements.png
 menu/buttons/Back.png
 menu/buttons/Close.png
@@ -115,7 +117,6 @@ menu/levels/48.png
 menu/levels/49.png
 menu/levels/50.png
 menu/menu.png
-ninja/DoubleJump.png
 ninja/Fall.png
 ninja/Hit.png
 ninja/Idle.png
@@ -126,7 +127,6 @@ ninja/ninja-icon.png
 particles/IceParticle.png
 particles/MudParticle.png
 particles/SandParticle.png
-pinkman/DoubleJump.png
 pinkman/Fall.png
 pinkman/Hit.png
 pinkman/Idle.png
@@ -138,7 +138,6 @@ platforms/platePlatform.png
 platforms/yellowPlatform.png
 sound/click.wav
 sound/coin.wav
-sound/highjump.wav
 sound/hit.wav
 sound/jump.wav
 sound/main.wav
@@ -185,7 +184,6 @@ traps/SpikedBall/SpikedBall.png
 traps/Spikes/Idle.png
 traps/Trampoline/Idle.png
 traps/Trampoline/Jump.png
-virtualguy/DoubleJump.png
 virtualguy/Fall.png
 virtualguy/Hit.png
 virtualguy/Idle.png
