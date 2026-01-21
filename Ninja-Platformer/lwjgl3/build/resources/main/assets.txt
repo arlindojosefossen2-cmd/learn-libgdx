@@ -15,6 +15,7 @@ boxes/Box3/Break.png
 boxes/Box3/Hit.png
 boxes/Box3/Idle.png
 buttons/button.png
+c-key.png
 checkpoints/Checkpoint/CheckpointFlagIdle.png
 checkpoints/Checkpoint/CheckpointFlagOut.png
 checkpoints/Checkpoint/CheckpointNoFlag.png

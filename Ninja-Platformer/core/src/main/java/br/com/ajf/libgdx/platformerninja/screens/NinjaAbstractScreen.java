@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,9 @@ public class NinjaAbstractScreen extends BaseScreen
 
     private boolean gameOver;
     private EndPoint endPoint;
+
+    private String tileMapName;
+    private int count;
 
     public NinjaAbstractScreen(String tileMapName)
     {
@@ -152,8 +156,8 @@ public class NinjaAbstractScreen extends BaseScreen
                 mainStage
             );
         }
-
-        if (tileMapName.equals(MENU))
+        this.tileMapName = tileMapName;
+        if (this.tileMapName.equals(MENU))
         {
             menuSettings();
         }
@@ -197,6 +201,13 @@ public class NinjaAbstractScreen extends BaseScreen
 
        endPoint = new EndPoint((float) props.get("x"), (float) props.get("y"),mainStage);
        endPoint.setVisible(false);
+
+       //test
+      new FallingPlatformer(
+         128,
+         180,
+           mainStage
+       );
     }
 
     @Override
@@ -285,8 +296,8 @@ public class NinjaAbstractScreen extends BaseScreen
                 mainStage
             );
         }
-
-        if (tileMapName.equals(MENU))
+        this.tileMapName = tileMapName;
+        if (this.tileMapName.equals(MENU))
         {
             menuSettings();
         }
@@ -331,6 +342,13 @@ public class NinjaAbstractScreen extends BaseScreen
 
         endPoint = new EndPoint((float) props.get("x"), (float) props.get("y"),mainStage);
         endPoint.setVisible(false);
+
+        //test
+        new FallingPlatformer(
+            128,
+            180,
+            mainStage
+        );
     }
 
     private void menuSettings()
@@ -430,6 +448,20 @@ public class NinjaAbstractScreen extends BaseScreen
             return false;
         }
 
+        for (FallingPlatformer fallingPlatformer : BaseActor.getList(mainStage, FallingPlatformer.class))
+        {
+            if (keyCode == Input.Keys.SPACE)
+            {
+                if (player.belowOverlaps(fallingPlatformer)
+                    || fallingPlatformer.velocityVec.y < 0
+                    || player.isFalling())
+                {
+                    player.jumpSound.play(0.5f);
+                    player.jump();
+                }
+            }
+        }
+
         if (keyCode == Input.Keys.SPACE)
         {
             if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
@@ -519,6 +551,42 @@ public class NinjaAbstractScreen extends BaseScreen
 
         if (player.isVisible())
         {
+            for (FallingPlatformer fallingPlatformer : BaseActor.getList(mainStage, FallingPlatformer.class))
+            {
+                count++;
+
+                if (player.overlaps(fallingPlatformer))
+                {
+                    fallingPlatformer.setAnimation(fallingPlatformer.off);
+
+                    if (count >= 100)
+                    {
+                        fallingPlatformer.setMotionAngle(270);
+                        fallingPlatformer.setSpeed(200);
+                        fallingPlatformer.accelerationAtAngle(fallingPlatformer.getMotionAngle());
+                    }
+                }
+                else if(!player.overlaps(fallingPlatformer))
+                {
+                    fallingPlatformer.setAnimation(fallingPlatformer.on);
+                    count = 0;
+                }
+
+                if (player.isFalling() && !player.overlaps(fallingPlatformer) && !player.belowOverlaps(fallingPlatformer))
+                {
+                    fallingPlatformer.setEnabled(true);
+                }
+
+                if (player.isJumping() && player.overlaps(fallingPlatformer))
+                {
+                    fallingPlatformer.setEnabled(false);
+                }
+                if (player.isJumping() && !player.overlaps(fallingPlatformer))
+                {
+                    fallingPlatformer.setEnabled(true);
+                }
+            }
+
             for (Platform platform : BaseActor.getList(mainStage, Platform.class))
             {
                 if (player.isFalling() && !player.overlaps(platform) && !player.belowOverlaps(platform))
